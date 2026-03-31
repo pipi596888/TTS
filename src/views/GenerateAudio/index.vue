@@ -640,18 +640,6 @@ async function generateAll() {
     ElMessage.error(err?.message || '生成失败')
   }
 }
-
-async function generateOne(seg: Segment) {
-  const override: Segment = {
-    ...seg,
-    text: smartProcess.value ? normalizeText(seg.text) : seg.text,
-  }
-  try {
-    await ttsStore.generateAudio([override])
-  } catch (err: any) {
-    ElMessage.error(err?.message || '生成失败')
-  }
-}
 </script>
 
 <style scoped>
